@@ -92,7 +92,7 @@ class AsseticLoader extends Loader
      * @param string          $name   The name to use
      * @param integer         $pos    The leaf index
      */
-    private function loadRouteForAsset(RouteCollection $routes, AssetInterface $asset, $name, $pos = null)
+    protected function loadRouteForAsset(RouteCollection $routes, AssetInterface $asset, $name, $pos = null)
     {
         $defaults = array(
             '_controller' => 'assetic.controller:render',
