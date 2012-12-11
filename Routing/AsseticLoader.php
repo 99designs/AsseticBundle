@@ -16,6 +16,7 @@ use Assetic\Factory\LazyAssetManager;
 use Symfony\Bundle\AsseticBundle\Config\AsseticResource;
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Config\Resource\FileResource;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
@@ -38,10 +39,12 @@ use Symfony\Component\Routing\RouteCollection;
  */
 class AsseticLoader extends Loader
 {
+    protected $container;
     protected $am;
 
-    public function __construct(LazyAssetManager $am)
+    public function __construct(ContainerInterface $container, LazyAssetManager $am)
     {
+        $this->container = $container;
         $this->am = $am;
     }
 
